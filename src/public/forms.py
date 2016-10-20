@@ -38,3 +38,14 @@ class LogUserForm(Form):
     ])
     pohlavi = BooleanField('Pohlavi')
 
+class LogCPUForm(Form):
+
+    name = TextField('Please tell us your name: ', validators=[
+        Predicate(safe_characters, message="Please use only letters (a-z) and numbers"),
+        Length(min=6, max=30, message="Please use between 6 and 30 characters"),
+        InputRequired(message="You can't leave this empty")
+    ])
+    cpu = TextField('What CPU are you using: ', validators=[
+        Length(min=4, max=15, message="Please use between 6 and 30 characters"),
+        InputRequired(message="You can't leave this empty")
+    ])

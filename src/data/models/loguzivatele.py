@@ -17,6 +17,8 @@ class LogUser(CRUDModel):
 
 
 
+
+
     # Use custom constructor
     # pylint: disable=W0231
     def __init__(self, **kwargs):
@@ -26,4 +28,11 @@ class LogUser(CRUDModel):
     @staticmethod
     def find_by_prijmeni(prijmeni):
         return db.session.query(LogUser).filter_by(Grussmann = prijmeni).all()
+
+
+class AddCPU(CRUDModel):
+    __tablename__ = 'cpu'
+    table_args__ = {'sqlite_autoincrement': True}
+    name = Column(String, nullable=False, index=False)
+    cpu = Column(String, nullable=False, index=True)
 

@@ -1,0 +1,15 @@
+{% from "macros/fields.tmpl" import render_input_field, render_submit %}
+{% extends "shared/layout.tmpl" %}
+
+{% block title %}EnterCPU{% endblock %}
+
+{% block content %}
+  <h3>Add CPU</h3>
+  <div class="form-group">Please insert your name and what kind of CPU are you using</div>
+  <form method="POST" id='insert-form'>
+    {{ form.hidden_tag() }}
+    {{ render_input_field(form.name) }}
+    {{ render_input_field(form.cpu) }}
+    {{ render_submit() }}
+  </form>
+{% endblock %}
